@@ -1,0 +1,18 @@
+@mixin tee-shirt-sizes($name) {
+   @each $k in $tee-sizes {
+      .#{$name}\:#{$k} {
+         @content;
+      }
+   }
+}
+
+@mixin tee-shirt-size($name, $size) {
+   @if (index($tee-sizes, $size)) {
+      .#{$name}\:#{$size} {
+         @content;
+      }
+   }
+   @else {
+     @error "unable to set tee-shirt-size()";
+   }
+}

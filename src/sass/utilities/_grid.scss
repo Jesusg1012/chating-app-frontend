@@ -1,0 +1,74 @@
+$block-width: 100% / $grid-columns;
+
+.container {
+   @include container;
+
+   &--lock {
+      @include container;
+      max-width: $global-browser-max-size;
+   }
+}
+
+.row {
+   @include row;
+
+   &--center {
+      @include row;
+      justify-content: center;
+   }
+
+   &--column {
+      @include row;
+      flex-direction: column;
+   }
+}
+
+.pull-right {
+   margin-left: auto;
+   margin-right: 0;
+}
+
+.order-last { order: ($grid-columns) + 1; }
+
+@include class-with-mq('col') {
+   @include column(auto);
+}
+
+@for $i from 1 through $grid-columns {
+
+   @each $k, $v in $mq-list {
+      @media(map-get($_mq, '#{$k}-and-up')) {
+         .#{$k}\:col-#{$i} {
+            @include column($i);
+         }
+
+         .#{$k}\:offset-#{$i} {
+            margin-left: offset-value($i) !important;
+         }
+      }
+   }
+}
+
+@each $k, $v in $mq-list {
+   @media(map-get($_mq, '#{$k}-and-up')) {
+      .#{$k}\:col-centered-12 {
+         @include column(12);
+      }
+      .#{$k}\:col-centered-10 {
+         @include column(10);
+         margin-left: offset-value(1);
+      }
+      .#{$k}\:col-centered-8 {
+         @include column(8);
+         margin-left: offset-value(2);
+      }
+      .#{$k}\:col-centered-6 {
+         @include column(6);
+         margin-left: offset-value(3);
+      }
+      .#{$k}\:col-centered-4 {
+         @include column(4);
+         margin-left: offset-value(4);
+      }
+   }
+}

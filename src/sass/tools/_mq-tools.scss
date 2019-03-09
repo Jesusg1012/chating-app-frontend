@@ -1,0 +1,31 @@
+
+@mixin class-with-mq ($name, $withCounters: 0, $increment: 1) {
+
+   @if ($withCounters < 1) {
+
+      .#{$name} {
+         @content;
+      }
+
+      @each $k, $v in $mq-list {
+         @media(map-get($_mq, '#{$k}-and-up')) {
+            .#{$k}\:#{$name} {
+               @content;
+            }
+         }
+      }
+   } @else {
+      $start: 0;
+      $start: $start + $increment;
+
+      @for $i from $start through $withCounters {
+         @each $k, $v in $mq-list {
+            @media(map-get($_mq, '#{$k}-and-up')) {
+               .#{$k}\:#{$name}-#{$i} {
+                  @content;
+               }
+            }
+         }
+      }
+   }
+}

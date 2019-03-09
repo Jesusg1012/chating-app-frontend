@@ -1,0 +1,12 @@
+$height: 5;
+
+@for $height from 5 through 100 {
+
+   @include class-with-mq('height') {
+      &-#{$height} {
+         height: #{$height}vh;
+      }
+
+      $height: $height + 5;
+   }
+}

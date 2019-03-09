@@ -1,0 +1,39 @@
+@function column-value($cols) {
+   @if ($cols != 'auto' or $cols != auto) {
+      @return $cols * $block-width;
+   }
+
+   @return $cols;
+}
+
+@function offset-value($cols) {
+   @return calc((#{$cols} * #{$block-width}) + (#{$grid-gutter} / 2));
+}
+
+@mixin column($cols, $center-column: 'false') {
+   $value: column-value($cols);
+
+   flex: 0 0 $value;
+   margin-left: $grid-gutter / 2;
+   margin-right: $grid-gutter / 2;
+   max-width: calc(#{$value} - #{$grid-gutter});
+   min-height: 1px;
+   position: relative;
+}
+
+@mixin container() {
+   margin-left: auto;
+   margin-right: auto;
+   padding-left: $grid-gutter / -2;
+   padding-left: $grid-gutter / -2;
+   width: 100%;
+}
+
+@mixin row() {
+   align-content: flex-start;
+   align-items: center;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: flex-start;
+}

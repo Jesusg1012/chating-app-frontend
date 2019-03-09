@@ -1,0 +1,40 @@
+$offset-xxs:  5px;
+$offset-xs:   10px;
+$offset-sm:   15px;
+$offset-base: 20px;
+$offset-md:   25px;
+$offset-lg:   30px;
+$offset-xl:   40px;
+$offset-xxl:  50px;
+
+@include tee-shirt-size('vertical-offset', 'xxs') {
+   margin-bottom: $offset-xxs;
+}
+
+@include tee-shirt-size('vertical-offset', 'xs') {
+   margin-bottom: $offset-xs;
+}
+
+@include tee-shirt-size('vertical-offset', 'sm') {
+   margin-bottom: $offset-sm;
+}
+
+@include tee-shirt-size('vertical-offset', 'base') {
+   margin-bottom: $offset-base;
+}
+
+@include tee-shirt-size('vertical-offset', 'md') {
+   margin-bottom: $offset-md;
+}
+
+@include tee-shirt-size('vertical-offset', 'lg') {
+   margin-bottom: $offset-lg;
+}
+
+@include tee-shirt-size('vertical-offset', 'xl') {
+   margin-bottom: $offset-xl;
+}
+
+@include tee-shirt-size('vertical-offset', 'xxl') {
+   margin-bottom: $offset-xxl;
+}
