@@ -5,7 +5,12 @@
 }
 
 .index-header-text{
-	color:white;
+	color: white;
+	display: inline;
+}
+
+.index-header-registration{
+	float:right;
 }
 
 .index-background{
