@@ -1,0 +1,13 @@
+.index-header{
+	background-color: black;
+    font-family:'Lato', sans-serif !important;
+    padding: 1% 2%;
+}
+
+.index-header-text{
+	color:white;
+}
+
+.index-background{
+	background:black;
+}
